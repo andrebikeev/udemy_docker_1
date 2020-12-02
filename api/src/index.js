@@ -17,7 +17,7 @@ const startServer = () => {
 	  const silence = new Post({ name: "Silence" });
 	  silence.save(function(err, savedSilence) {
 	  if (err) return console.error(err);
-	  console.log("Saved silence savedSilence with dsvolumes text 23456", savedSilence);
+	  console.log("Saved silence savedSilence with text 2345678", savedSilence);
 	  });
 	});
   };
