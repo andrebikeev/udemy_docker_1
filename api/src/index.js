@@ -17,13 +17,13 @@ const startServer = () => {
 	  const silence = new Post({ name: "Silence" });
 	  silence.save(function(err, savedSilence) {
 	  if (err) return console.error(err);
-	  console.log("Saved silence savedSilence with text 2345678", savedSilence);
+	  console.log("Saved silence savedSilence", savedSilence);
 	  });
 	});
   };
 
 app.get("/test", (req, res) => {
-	res.send("Our api server is working correctly");
+	res.send("Our api server is working correctly !!!");
 });
 
 connectDb()
