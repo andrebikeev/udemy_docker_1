@@ -15,13 +15,12 @@ const startServer = () => {
 	  console.log(`Database url ${db}`);
 		
 	  const silence = new Post({ name: "Silence" });
-	  silence.save(function(err, result) {
+	  silence.save(function(err, savedSilence) {
 	  if (err) return console.error(err);
-	  console.log("result", result);
+	  console.log("Saved silence savedSilence with dsvolumes text 23456", savedSilence);
 	  });
 	});
   };
-
 
 app.get("/test", (req, res) => {
 	res.send("Our api server is working correctly");
