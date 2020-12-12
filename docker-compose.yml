@@ -2,7 +2,9 @@ version: '3'
 
 services:
   frontend:
-    build: ./frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.prod
     container_name: realworld-docker-frontend
     command: serve -s build -l 3000
     restart: unless-stopped
@@ -14,8 +16,6 @@ services:
     container_name: realworld-docker-api
     command: npm run start
     restart: unless-stopped
-    ports:
-      - "3001:3001"
     environment:
       - PORT=3001
       - HOST=http://realworld-docker.com
@@ -39,8 +39,6 @@ services:
     container_name: realworld-docker-auth
     command: npm run start
     restart: unless-stopped
-    ports:
-      - "3002:3002"
     environment:
       - PORT=3002
       - HOST=http://realworld-docker.com
@@ -68,6 +66,8 @@ services:
       - ./nginx/nginx.conf.prod:/etc/nginx/conf.d/nginx.conf
     depends_on:
       - frontend
+      - api
+      - auth
     networks:
       - realworld-docker-network
 
